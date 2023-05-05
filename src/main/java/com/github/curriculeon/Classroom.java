@@ -1,18 +1,24 @@
 package com.github.curriculeon;
 
+import java.util.*;
 
 import java.util.Map;
 
 public class Classroom {
 
+    private final List<Student> studentList;
+
     public Classroom(Student[] students) {
+        this.studentList = new ArrayList<>(Arrays.asList(students));
     }
 
     public Classroom() {
+        studentList = new ArrayList<>(Collections.emptyList());
+
     }
 
     public Student[] getStudents() {
-        return null;
+        return studentList.toArray(new Student[0]);
     }
 
 
