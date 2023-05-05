@@ -23,15 +23,24 @@ public class Classroom {
 
 
     public Double getAverageExamScore() {
-        return null;
+        double ans = 0;
+        int tracker = 0;
+        for(Student i : studentList){
+            ans += i.getSumOfExamScore();
+            tracker += i.getExamScores().length;
+        }
+        return ans / tracker;
+
     }
 
     public Boolean addStudent(Student students) {
-        return null;
+        studentList.add(students);
+        return studentList.contains(students);
     }
 
     public Boolean removeStudent(Student student) {
-        return null;
+        studentList.remove(student);
+        return !studentList.contains(student);
     }
 
     public Student[] getStudentsByScore() {
