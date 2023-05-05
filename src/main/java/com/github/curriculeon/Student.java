@@ -27,24 +27,29 @@ public class Student implements Comparable<Student> {
     }
 
     public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
-        return null;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Double[] getExamScores() {
-        return null;
+        return testScores.toArray(new Double[0]);
     }
 
     public void addExamScore(double examScore) {
+        testScores.add(examScore);
     }
 
 
     public void setExamScore(int examNum, double updateScore) {
+        testScores.set(examNum,updateScore);
+
     }
 
 
