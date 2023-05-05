@@ -1,17 +1,29 @@
 package com.github.curriculeon;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class Student implements Comparable<Student> {
 
+    private String firstName;
+    private String lastName;
+    private final List<Double> testScores;
+
     public Student(String firstName, String lastName, Double[] testScores) {
+        setFirstName(firstName);
+        setLastName(lastName);
+        this.testScores = new ArrayList<>(Arrays.asList(testScores));
     }
 
     public Student() {
+        testScores = new ArrayList<>(Collections.emptyList());
 
     }
 
     public String getFirstName() {
-        return null;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
