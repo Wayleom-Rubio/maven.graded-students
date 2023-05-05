@@ -44,12 +44,17 @@ public class Classroom {
     }
 
     public Student[] getStudentsByScore() {
-        return null;
+        return studentList.stream()
+                .sorted()
+                .toArray(Student[]::new);
     }
 
     public Map<Student, Character> getGradeBook() {
-        return null;
+        Map<Student, Character> gradeBook = new HashMap<>();
+        for (Student student : studentList) gradeBook.put(student, student.getGrade(student.getAverageExamScore()));
+        return gradeBook;
     }
-
 }
+
+
 
