@@ -54,12 +54,30 @@ public class Student implements Comparable<Student> {
 
 
     public Double getAverageExamScore() {
-        return null;
+        double ans = 0;
+        for(double i : testScores) ans += i;
+        return ans;
     }
 
     @Override
     public String toString() {
         return null;
+    }
+
+    public Character getGrade(Double grade) {
+        char letterGrade;
+        if ( grade >= 84 ) {
+            letterGrade = 'A';
+        } else if ( grade < 84 && grade > 71) {
+            letterGrade = 'B';
+        } else if ( grade < 70 && grade > 56) {
+            letterGrade = 'C';
+        } else if ( grade <= 55 && grade > 46) {
+            letterGrade = 'D';
+        } else {
+            letterGrade = 'F';
+        }
+        return letterGrade;
     }
 
     /**
@@ -68,7 +86,12 @@ public class Student implements Comparable<Student> {
      */
     @Override
     public int compareTo(Student studentToCompareAgainst) {
-        return Integer.valueOf(null);
+        Double averageScore = getAverageExamScore(), averageScoreToCompare = studentToCompareAgainst.getAverageExamScore();
+        int compare = averageScoreToCompare.compareTo(averageScore);
+        if(compare == 0)
+            return this.getLastName().compareTo(studentToCompareAgainst.getLastName());
+        return compare;
+    }
     }
 }
 
